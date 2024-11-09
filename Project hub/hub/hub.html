@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hub.css">
+    <title>Project Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Project Hub</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="hub.html">Script</a></li>
+                <li><a href="https://discord.gg/CspfGu2kV6" target="_blank" class="discord-link">
+                    <img src="../img/discord.png" alt="Discord" style="width: 20px; vertical-align: middle;"> Discord
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="script-preview">
+            <div class="image-container">
+                <img src="../img/project.png" alt="Preview do Script" class="script-image">
+            </div>
+        </div>
+
+        <div class="code-section">
+            <div class="code-block">
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Pedro23231/ProjectHub1/refs/heads/main/Pedro2."))()
+            </div>
+            <button class="copy-button" onclick="copyToClipboard()">
+                <i class="fas fa-copy"></i> Copiar Script
+            </button>
+            <div class="message" id="copyMessage">Copiado!</div>
+        </div>
+
+        <div class="info-section">
+            <div class="supported-games">
+                <h3>Supported Games:</h3>
+                <ul>
+                    <li>Prison Life - release</li>
+                </ul>
+            </div>
+
+            <div class="updates">
+                <h3>Updates:</h3>
+                <div class="legend">
+                    <span>[+] Adicionado</span>
+                    <span>[-] Removido</span>
+                    <span>[*] Corrigindo</span>
+                </div>
+                <ul>
+                    <li>
+                        <span class="update-icon">🔄</span>
+                        <strong>Menu:</strong> Welcome text, creator e version hub
+                    </li>
+                    <li>
+                        <span class="update-icon">🔄</span>
+                        <strong>Painel:</strong> Teleport for item
+                    </li>
+                    <li>
+                        <span class="update-icon">🔄</span>
+                        <strong>Teams:</strong> Switch Teams
+                    </li>
+                    <li>
+                        <span class="update-icon">🔄</span>
+                        <strong>Teleport:</strong> tp for prison, criminals, and guards
+                    </li>
+                    <li>
+                        <span class="update-icon">🔄</span>
+                        <strong>Misc:</strong> Remove door and remove gates
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Project Hub. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="hub.js"></script>
+</body>
+</html>

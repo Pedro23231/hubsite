@@ -1,0 +1,622 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Constantes para facilitar a manutenção */
+:root {
+    --code-font-size: 14px; /* Tamanho da fonte do bloco de código */
+    --code-padding: 5px; /* Padding do bloco de código */
+    --hover-glow: rgba(255, 255, 255, 0.2); /* Efeito de brilho suave ao passar o mouse */
+}
+
+/* Estilos básicos para o corpo da página */
+body {
+    background-color: #1e1e1e; /* Fundo sólido */
+    font-family: 'Roboto', sans-serif; /* Fonte moderna */
+    margin: 0; /* Remove margens padrão */
+    overflow-y: auto; /* Permite rolagem vertical */
+}
+
+/* Criando o efeito de bolas caindo */
+.bubble {
+    position: absolute;
+    bottom: -150px; /* Começa fora da tela */
+    background-color: rgba(255, 255, 255, 0.2); /* Cor das bolas */
+    border-radius: 50%; /* Para criar bolas perfeitas */
+    opacity: 0.6;
+    animation: bubble 10s infinite; /* Animação contínua */
+    pointer-events: none; /* Para evitar interação do mouse */
+}
+
+.bubble:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    left: 10%;
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 30%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(3) {
+    width: 30px;
+    height: 30px;
+    left: 50%;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(4) {
+    width: 70px;
+    height: 70px;
+    left: 70%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(5) {
+    width: 50px;
+    height: 50px;
+    left: 90%;
+    animation-duration: 8s;
+    animation-delay: 4s;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.5); /* Sobe e aumenta o tamanho */
+        opacity: 0; /* Desaparece ao sair da tela */
+    }
+}
+
+/* Container principal */
+.container {
+    background: rgba(42, 42, 42, 0.9); /* Cor de fundo sólida com leve transparência */
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(255, 255, 255, 0.1); /* Sombra mais profunda com leve brilho */
+    padding: 40px; /* Aumenta o espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    width: 90%; /* Largura de 90% do elemento pai */
+    max-width: 700px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeitos de transição */
+    position: relative; /* Para efeitos visuais */
+    z-index: 2; /* Para garantir que o container esteja acima das bolas */
+}
+
+/* Efeito de hover no container */
+.container:hover {
+    transform: translateY(-5px); /* Levanta o card ao passar o mouse */
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(255, 255, 255, 0.2); /* Aumenta a sombra com mais brilho */
+    border: 1px solid var(--hover-glow); /* Adiciona um brilho leve ao redor do container */
+}
+
+/* Estilo do cabeçalho */
+h1 {
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    color: #ffffff; /* Cor do texto do título */
+    font-size: 2.8em; /* Tamanho maior do texto */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6); /* Sombra no texto para profundidade */
+}
+
+/* Estilo do segundo cabeçalho */
+h2 {
+    margin-top: 20px; /* Espaço acima do subtítulo */
+    color: #ffffff; /* Cor do texto do subtítulo */
+    font-size: 2em; /* Tamanho do texto do subtítulo */
+}
+
+/* Estilo do bloco de código */
+.code-block {
+    background-color: #3c3c3c; /* Fundo do bloco de código em cinza mais claro */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: var(--code-padding); /* Espaçamento interno */
+    display: inline-block; /* Faz com que o bloco de código se ajuste ao tamanho do conteúdo */
+    white-space: pre-wrap; /* Mantém formatação de pré */
+    margin-bottom: 10px; /* Espaçamento abaixo do bloco de código */
+    color: #f0f0f0; /* Cor do texto */
+    font-size: var(--code-font-size); /* Tamanho da fonte configurável */
+    position: relative; /* Para efeitos de hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+    width: 100%;
+}
+
+/* Efeito de hover no bloco de código */
+.code-block:hover {
+    background-color: #4c4c4c; /* Muda a cor de fundo ao passar o mouse */
+    transform: scale(1.02); /* Aumenta ligeiramente o bloco ao passar o mouse */
+}
+
+/* Estilo do botão */
+.copy-button {
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Gradiente para o botão */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 15px 30px; /* Aumenta o tamanho do botão */
+    text-align: center; /* Centraliza o texto do botão */
+    text-decoration: none; /* Remove sublinhado */
+    display: inline-block; /* Permite que o botão seja um bloco em linha */
+    font-size: 18px; /* Tamanho da fonte */
+    border-radius: 5px; /* Cantos arredondados do botão */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transição suave para o botão */
+}
+
+/* Efeito de hover no botão */
+.copy-button:hover {
+    transform: translateY(-2px); /* Levanta o botão ao passar o mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao botão ao passar o mouse */
+}
+
+/* Estilo da mensagem de confirmação */
+.message {
+    margin-top: 10px; /* Espaçamento acima da mensagem */
+    font-size: 16px; /* Tamanho da fonte da mensagem */
+    color: #ffffff; /* Cor do texto da mensagem */
+}
+
+/* Estilos para o container de upgrades */
+.upgrades-container {
+    margin-top: 30px; /* Espaçamento acima do container de upgrades */
+    text-align: left; /* Alinha o texto à esquerda */
+    color: #ffffff; /* Cor do texto dos upgrades */
+    text-align: center;
+    border: #4c4c4c;
+}
+
+.upgrades-list {
+    list-style-type: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove padding */
+}
+
+.upgrades-list li {
+    margin: 10px 0; /* Espaçamento entre os itens da lista */
+    text-align: left;
+}
+
+.upgrades-two {
+    text-align: center;
+}
+
+/* Estilo da imagem do projeto */
+.image-container {
+    margin-top: 40px; /* Aumenta o espaçamento acima da imagem */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da imagem para separar dos upgrades */
+}
+
+.project-image {
+    max-width: 100%; /* Largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Cantos arredondados na imagem */
+}
+
+.supported {
+    margin-top: 30px; /* Espaçamento acima do container de upgrades */
+    text-align: left; /* Alinha o texto à esquerda */
+    color: #ffffff; /* Cor do texto dos upgrades */
+    text-align: center;
+    border: #4c4c4c;
+}
+
+.supported-2 {
+    text-align: left;
+    margin: 10px 0;
+}
+
+/* Mantendo os estilos base do index.html */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Header e navegação (igual ao index.html) */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: linear-gradient(90deg, #000000, #1e8b1e);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    border-bottom: 3px solid #32cd32;
+}
+
+/* ... (manter os estilos do header e nav do index.html) ... */
+
+/* Novos estilos específicos para a página hub */
+.main-content {
+    margin-top: 120px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.code-section {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #32cd32;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.code-block {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #3a3a3a;
+    transition: all 0.3s ease;
+}
+
+.code-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: #32cd32;
+}
+
+.copy-button {
+    background: #32cd32;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button:hover {
+    background: #28a745;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.copy-button i {
+    font-size: 18px;
+}
+
+.message {
+    display: none;
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    animation: fadeInOut 2s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.supported-games, .updates {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.updates ul {
+    list-style: none;
+}
+
+.updates li {
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.updates li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #32cd32;
+}
+
+.message {
+    display: none;
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+/* Mantenha os estilos do footer do index.html */
+.footer {
+    background: linear-gradient(90deg, #000000, #1e8b1e);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .code-block {
+        font-size: 14px;
+    }
+}
+
+/* Estilos do header e navegação */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: linear-gradient(90deg, #000000, #1e8b1e);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    border-bottom: 3px solid #32cd32;
+}
+
+header .logo h1 {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a, .discord-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 25px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+nav a:hover, .discord-link:hover {
+    color: #fff;
+    background: #28a745;
+    transform: scale(1.05);
+    border: 1px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo específico para o link do Discord */
+.discord-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discord-link img {
+    width: 20px;
+    height: 20px;
+}
+
+.supported-games {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #32cd32;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.supported-games h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #32cd32;
+}
+
+.supported-games ul {
+    list-style: none;
+    padding: 0;
+}
+
+.supported-games li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.supported-games li:before {
+    content: "🎮";
+    font-size: 1.2em;
+}
+
+.supported-games li:hover {
+    transform: translateX(10px);
+    background: #f8f8f8;
+}
+
+.updates {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #32cd32;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.updates h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #32cd32;
+}
+
+.legend {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.legend span {
+    font-size: 14px;
+    color: #555;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.updates ul {
+    list-style: none;
+    padding: 0;
+}
+
+.updates li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.updates li:hover {
+    transform: translateX(10px);
+    background: #f8f8f8;
+}
+
+.updates li strong {
+    color: #28a745;
+    margin-right: 8px;
+    min-width: 70px;
+    display: inline-block; /* Garante que o texto mantenha seu espaço */
+}
+
+/* Remove o pseudo-elemento anterior */
+.updates li::before {
+    display: none;
+}
+
+/* Adiciona um span para o ícone no HTML */
+.update-icon {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.2em;
+    width: 24px;
+    text-align: center;
+}
+
+.script-preview {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #32cd32;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.script-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.script-image:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        max-width: 400px;
+    }
+}
